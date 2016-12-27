@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC7B76EF-3C30-4B99-AD72-2D8EA2C858EC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grading_SOH_Final_Rel</RootNamespace>
+    <AssemblyName>Grading_SOH_Final_Rel</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Wpf, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Compression.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.DocIO.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.DocToPDFConverter.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ.Export, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ.Mvc, Version=14.4500.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ.PdfViewer, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ.Pivot, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ.ReportViewer, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Gauge.Wpf, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Linq.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Olap.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Pdf.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.PMML.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Presentation.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SFMaps.WPF, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Wpf, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.XlsIO.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Data.SqlServerCe" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminUnitController.cs" />
+    <Compile Include="Controllers\ApplicantsController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SemistersController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Applicants.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\GradingContext.cs" />
+    <Compile Include="Models\GradingContextInitializer.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Semister.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentsGrade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="wcf\IOlapClientService.cs" />
+    <Compile Include="wcf\IRelationalClientService.cs" />
+    <Compile Include="wcf\IRelationalGridService.cs" />
+    <Compile Include="wcf\OlapClientService.svc.cs">
+      <DependentUpon>OlapClientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="wcf\RelationalClientService.svc.cs">
+      <DependentUpon>RelationalClientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="wcf\RelationalGridService.svc.cs">
+      <DependentUpon>RelationalGridService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WebAPI\KPIController.cs" />
+    <Compile Include="WebAPI\OlapChartController.cs" />
+    <Compile Include="WebAPI\OlapClientController.cs" />
+    <Compile Include="WebAPI\OlapGaugeController.cs" />
+    <Compile Include="WebAPI\OlapGridController.cs" />
+    <Compile Include="WebAPI\OlapTreeMapController.cs" />
+    <Compile Include="WebAPI\PagingController.cs" />
+    <Compile Include="WebAPI\PdfViewerController.cs" />
+    <Compile Include="WebAPI\RelationalChartController.cs" />
+    <Compile Include="WebAPI\RelationalClientController.cs" />
+    <Compile Include="WebAPI\RelationalGaugeController.cs" />
+    <Compile Include="WebAPI\RelationalGridController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datatables\dataTables.bootstrap.css" />
+    <Content Include="Content\datatables\dataTables.bootstrap.js" />
+    <Content Include="Content\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\datatables\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="Content\datatables\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\columns.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\complete-callback.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\fill-both.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\fill-horizontal.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\index.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\scrolling.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\examples\step-callback.html" />
+    <Content Include="Content\datatables\extensions\AutoFill\images\filler.png" />
+    <Content Include="Content\datatables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Content\datatables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Content\datatables\extensions\AutoFill\Readme.txt" />
+    <Content Include="Content\datatables\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="Content\datatables\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\alt_insert.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\colvis.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\col_filter.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\fixedheader.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\index.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\jqueryui.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\new_init.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\predefined.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\realtime.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\reset.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\scrolling.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\server_side.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\examples\state_save.html" />
+    <Content Include="Content\datatables\extensions\ColReorder\images\insert.png" />
+    <Content Include="Content\datatables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Content\datatables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Content\datatables\extensions\ColReorder\License.txt" />
+    <Content Include="Content\datatables\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="Content\datatables\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Content\datatables\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\button_order.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\exclude_columns.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\group_columns.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\index.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\jqueryui.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\mouseover.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\new_init.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\restore.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\text.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\title_callback.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\two_tables.html" />
+    <Content Include="Content\datatables\extensions\ColVis\examples\two_tables_identical.html" />
+    <Content Include="Content\datatables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Content\datatables\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="Content\datatables\extensions\ColVis\License.txt" />
+    <Content Include="Content\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="Content\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\bootstrap.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\colvis.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\col_filter.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\css_size.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\index.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\index_column.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\left_right_columns.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\right_column.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\rowspan.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\server-side-processing.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\size_fixed.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\size_fluid.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\examples\two_columns.html" />
+    <Content Include="Content\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Content\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\datatables\extensions\FixedColumns\License.txt" />
+    <Content Include="Content\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="Content\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\header_footer.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\index.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\top_left_right.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\two_tables.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\examples\zIndexes.html" />
+    <Content Include="Content\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Content\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\datatables\extensions\FixedHeader\Readme.txt" />
+    <Content Include="Content\datatables\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="Content\datatables\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="Content\datatables\extensions\KeyTable\examples\events.html" />
+    <Content Include="Content\datatables\extensions\KeyTable\examples\html.html" />
+    <Content Include="Content\datatables\extensions\KeyTable\examples\index.html" />
+    <Content Include="Content\datatables\extensions\KeyTable\examples\scrolling.html" />
+    <Content Include="Content\datatables\extensions\KeyTable\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Content\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Content\datatables\extensions\KeyTable\Readme.txt" />
+    <Content Include="Content\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\column-control.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\custom-renderer.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\index.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\right-column.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\child-rows\whole-row-control.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\auto.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\classes.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\complexHeader.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\fixedHeader.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\index.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\display-control\init-classes.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\index.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\ajax.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\className.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\default.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\index.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\new.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\initialisation\option.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\styling\bootstrap.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\styling\compact.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\styling\foundation.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\styling\index.html" />
+    <Content Include="Content\datatables\extensions\Responsive\examples\styling\scrolling.html" />
+    <Content Include="Content\datatables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Content\datatables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Content\datatables\extensions\Responsive\License.txt" />
+    <Content Include="Content\datatables\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="Content\datatables\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\api_scrolling.html" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\data\2500.txt" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\index.html" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\large_js_source.html" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\server-side_processing.html" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\state_saving.html" />
+    <Content Include="Content\datatables\extensions\Scroller\images\loading-background.png" />
+    <Content Include="Content\datatables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Content\datatables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Content\datatables\extensions\Scroller\Readme.txt" />
+    <Content Include="Content\datatables\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="Content\datatables\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\ajax.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\alter_buttons.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\bootstrap.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\button_text.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\collection.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\defaults.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\index.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\jqueryui.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\multiple_tables.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\multi_instance.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\new_init.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\pdf_message.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\plug-in.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\select_column.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\select_multi.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\select_os.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\select_single.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\simple.html" />
+    <Content Include="Content\datatables\extensions\TableTools\examples\swf_path.html" />
+    <Content Include="Content\datatables\extensions\TableTools\images\collection.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\copy.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\csv.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\pdf.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\print.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\print_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\xls.png" />
+    <Content Include="Content\datatables\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Content\datatables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Content\datatables\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="Content\datatables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Content\datatables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Content\datatables\images\sort_asc.png" />
+    <Content Include="Content\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Content\datatables\images\sort_both.png" />
+    <Content Include="Content\datatables\images\sort_desc.png" />
+    <Content Include="Content\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\datatables\jquery.dataTables.css" />
+    <Content Include="Content\datatables\jquery.dataTables.js" />
+    <Content Include="Content\datatables\jquery.dataTables.min.css" />
+    <Content Include="Content\datatables\jquery.dataTables.min.js" />
+    <Content Include="Content\datatables\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\ej\ej.responsive.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\datatables\extensions\ColReorder\Readme.md" />
+    <Content Include="Content\datatables\extensions\ColVis\Readme.md" />
+    <Content Include="Content\datatables\extensions\FixedColumns\Readme.md" />
+    <Content Include="Content\datatables\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="Content\datatables\extensions\Responsive\Readme.md" />
+    <Content Include="Content\datatables\extensions\Scroller\examples\data\ssp.php" />
+    <Content Include="Content\datatables\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="Content\datatables\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="Content\datatables\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="Content\datatables\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="Content\datatables\extensions\TableTools\Readme.md" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\ej\ej.globalize.min.js" />
+    <Content Include="Scripts\ej\ej.unobtrusive.min.js" />
+    <None Include="Scripts\ej\ej.web.all.min.intellisense.js" />
+    <Content Include="Scripts\ej\ej.web.all.min.js" />
+    <Content Include="Scripts\ej\ej.widget.angular.min.js" />
+    <Content Include="Scripts\ej\ej.widget.ko.min.js" />
+    <Content Include="Scripts\excanvas.min.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\pivotgrid.datasource.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="wcf\OlapClientService.svc" />
+    <Content Include="wcf\RelationalClientService.svc" />
+    <Content Include="wcf\RelationalGridService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\AdminUnit\Index.cshtml" />
+    <Content Include="Views\Sessions\Create.cshtml" />
+    <Content Include="Views\Sessions\Delete.cshtml" />
+    <Content Include="Views\Sessions\Details.cshtml" />
+    <Content Include="Views\Sessions\Edit.cshtml" />
+    <Content Include="Views\Sessions\Index.cshtml" />
+    <Content Include="Views\Departments\Create.cshtml" />
+    <Content Include="Views\Departments\Delete.cshtml" />
+    <Content Include="Views\Departments\Details.cshtml" />
+    <Content Include="Views\Departments\Edit.cshtml" />
+    <Content Include="Views\Departments\Index.cshtml" />
+    <Content Include="Views\Semisters\Create.cshtml" />
+    <Content Include="Views\Semisters\Delete.cshtml" />
+    <Content Include="Views\Semisters\Details.cshtml" />
+    <Content Include="Views\Semisters\Edit.cshtml" />
+    <Content Include="Views\Semisters\Index.cshtml" />
+    <Content Include="Views\Applicants\Create.cshtml" />
+    <Content Include="Views\Applicants\Delete.cshtml" />
+    <Content Include="Views\Applicants\Details.cshtml" />
+    <Content Include="Views\Applicants\Edit.cshtml" />
+    <Content Include="Views\Applicants\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1652/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

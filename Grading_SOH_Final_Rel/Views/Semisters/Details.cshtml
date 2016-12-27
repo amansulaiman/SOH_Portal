@@ -1,0 +1,34 @@
+﻿@model Grading_SOH_Final_Rel.Models.Semister
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Semister</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.SessionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.SessionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SemisterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemisterName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SemisterID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

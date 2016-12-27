@@ -1,0 +1,211 @@
+﻿@model IEnumerable<Grading_SOH_Final_Rel.Models.Student>
+@{
+    ViewBag.Title = "Academic Unit";
+}
+<link href="~/Content/ej/ej.responsive.css" rel="stylesheet" />
+
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:16px">
+            <li class="sidebar-brand label-primary" style="padding-top:8px; font-size:20px;  font-weight:bold">
+                <a href="#">
+                    @ViewBag.Title
+                </a>
+            </li>
+            <li>
+                @Html.ActionLink("Statistics", "Index", "AdminUnit")
+            </li>
+            <li >
+                @Html.ActionLink("Academic Sessions", "Index", "Sessions")
+            </li>
+            <li>
+                @Html.ActionLink("Academic Semisters", "Index", "Semisters")
+            </li>
+            <li>
+                @Html.ActionLink("Departments", "Index", "Departments")
+            </li>
+            <li class="btn-success" style="text-decoration:solid; font-weight:bold">
+                @Html.ActionLink("Student Registration", "Index", "Students")
+            </li>
+            <li>
+                @Html.ActionLink("Online Applicants", "Index", "Applicants")
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--Icon to Show Menu on Small Devices-->
+                <p>
+                    <div class="hidden-lg hidden-md hidden-print">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show/Hide
+                        </a>
+                    </div>
+                </p>
+
+                <!--TODO: My Content Here-->
+                <div class="box-body">
+                    <table class="table table-bordered table-striped" cellspacing="0" id="mytable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SurName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Age)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.HighestQualification)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Department.DepartmentName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Session.SessionName)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+
+
+                        @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SurName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HighestQualification)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Session.SessionName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                        </td>
+                    </tr>
+                    }
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SurName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Age)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.HighestQualification)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Department.DepartmentName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Session.SessionName)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                    <p>
+                        @Html.ActionLink("Create New", "Create", "Students", new { @class = "btn btn-primary" })
+                    </p>
+                    @*<p>
+                        @Html.ActionLink("Create New", "Create", "Students", new { @class = "btn btn-primary" })
+                    </p>
+                    @(Html.EJ().Grid<Grading_SOH_Final_Rel.Models.Student>("FlatGrid")
+                    .Datasource((IEnumerable<object>)ViewBag.studentsList)
+                    .AllowSorting()
+                    .AllowPaging()
+                    .IsResponsive()
+                    .Columns(col =>
+                    {
+                        col.Field("StudentID").HeaderText("Product ID").IsPrimaryKey(true).TextAlign(TextAlign.Right).Width(75).Add();
+                        col.Field("FirstName").HeaderText("Product Name").Width(80).Add();
+                        col.Field("SurName").HeaderText("Surname").TextAlign(TextAlign.Right).Priority(4).Width(75).Add();
+                       col.Field("LastName").HeaderText("Last Name").TextAlign(TextAlign.Right).Width(75).Priority(3).Format("{0:C}").Add();
+                        col.Field("HighestQualification").HeaderText("Highest Qualification").TextAlign(TextAlign.Right).Width(80).Priority(2).Format("{0:MM/dd/yyyy}").Add();
+                        //col.Field("Department.DepartmentName").HeaderText("Department Name").Width(110).Priority(2).Add();
+            }))*@
+                </div>
+            <!-- Footer -->
+            <footer>
+                <div class="container body-content">
+                    <hr />
+                    <p style="
+    mily:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:16px">&copy; @DateTime.Now.Year - School of Hygiene Portal</p>
+                </div>
+            </footer>
+            <!-- /#Footer -->
+           
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+
+
+</div>
+
+@section scripts{
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+    });
+    </script>
+    <!-- DataTables -->
+    <script src="~/Content/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $("#mytable").DataTable();
+  });
+</script>
+}
+<!--Scripts Section-->
+@section ScriptSection{
+    <script>
+    function OndataLabel(sender) {
+        sender.data.location.x = sender.data.location.x + 20;
+    }
+    $("#controlarea").css("visibility", "visible");
+    </script>
+}
