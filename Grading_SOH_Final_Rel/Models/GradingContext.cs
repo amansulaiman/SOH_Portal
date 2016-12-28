@@ -26,42 +26,7 @@ namespace Grading_SOH_Final_Rel.Models
             modelBuilder.Entity<Course>()
                 .HasMany(e => e.StudentsGrades)
                 .WithOptional(e => e.Course)
-                .HasForeignKey(e => e.C1Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades1)
-                .WithOptional(e => e.Course1)
-                .HasForeignKey(e => e.C2Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades2)
-                .WithOptional(e => e.Course2)
-                .HasForeignKey(e => e.C3Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades3)
-                .WithOptional(e => e.Course3)
-                .HasForeignKey(e => e.C4Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades4)
-                .WithOptional(e => e.Course4)
-                .HasForeignKey(e => e.C5Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades5)
-                .WithOptional(e => e.Course5)
-                .HasForeignKey(e => e.C6Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades6)
-                .WithOptional(e => e.Course6)
-                .HasForeignKey(e => e.C7Code);
-
-            modelBuilder.Entity<Course>()
-                .HasMany(e => e.StudentsGrades7)
-                .WithOptional(e => e.Course7)
-                .HasForeignKey(e => e.C8Code);
+                .HasForeignKey(e => e.CourseCode);
 
             modelBuilder.Entity<Department>()
                 .HasMany(e => e.Courses)

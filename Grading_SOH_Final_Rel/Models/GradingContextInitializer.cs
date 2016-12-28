@@ -25,9 +25,9 @@ namespace Grading_SOH_Final_Rel.Models
                     HighestQualification = "BSc",
                     LastName = "Sulaiman",
                     SurName = "Iliyasu",
-                    Session = context.Sessions.Add(new Session() { SessionName = "2015/2016" })
-                }),
-                STATUS = "Current"
+                    Session = context.Sessions.Add(new Session() { SessionName = "2015/2016" }),
+                    STATUS = "Current"
+                })
             };
 
 

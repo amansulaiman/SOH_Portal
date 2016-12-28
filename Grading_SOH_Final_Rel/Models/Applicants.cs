@@ -24,7 +24,7 @@ namespace Grading_SOH_Final_Rel.Models
 
         [Required]
         [Display(Name ="Local Govenment Area")]
-        public lga LocalGovt { get; set; }
+        public LGA LocalGovt { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
@@ -32,7 +32,7 @@ namespace Grading_SOH_Final_Rel.Models
         [Phone]
         public float PhoneNumber { get; set; }
 
-        public enum lga
+        public enum LGA
         {
             Municipal, Fagge, Nassarawa, Tarauni
         }

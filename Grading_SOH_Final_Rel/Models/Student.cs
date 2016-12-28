@@ -40,11 +40,14 @@ namespace Grading_SOH_Final_Rel.Models
         public string HighestQualification { get; set; }
 
         public int DepartmentID { get; set; }
+        
+        [StringLength(50)]
+        public string STATUS { get; set; }
 
         public virtual Department Department { get; set; }
 
         public virtual Session Session { get; set; }
 
-        public virtual StudentsGrade StudentsGrade { get; set; }
+        public virtual List<StudentsGrade> StudentsGrades { get; set; }
     }
 }
