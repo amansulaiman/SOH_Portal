@@ -12,7 +12,6 @@ namespace Grading_SOH_Final_Rel.Models
     {
         public string FullName { get; set; }
         public Department Department { get; set; }
-        public DateTime RegDate { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

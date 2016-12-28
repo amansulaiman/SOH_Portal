@@ -13,6 +13,8 @@ namespace Grading_SOH_Final_Rel
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            createRolesandUsers();
         }
         // In this method we will create default User roles and Admin user for login   
         private void createRolesandUsers()
@@ -35,10 +37,9 @@ namespace Grading_SOH_Final_Rel
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "aman";
+                user.UserName = "amansulaiman92@gmail.com";
                 user.Email = "amansulaiman92@gmail.com";
                 user.FullName = "Abdulrahman Sulaiman";
-                user.RegDate = DateTime.Now;
                 user.PhoneNumber = "08148877252";
 
                 string userPWD = "Aman@2016";
@@ -60,14 +61,51 @@ namespace Grading_SOH_Final_Rel
                 role.Name = "AcademicUnit";
                 roleManager.Create(role);
 
+                //Here we create a user for test purofes                  
+
+                var user = new ApplicationUser();
+                user.UserName = "academic@gmail.com";
+                user.Email = "academic@gmail.com";
+                user.FullName = "Abdulrahman Sulaiman";
+                user.PhoneNumber = "08148877252";
+
+                string userPWD = "Aman@2016";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add User to Role AcademicUnit   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "AcademicUnit");
+
+                }
             }
 
             // creating Creating ExamaUnit role    
-            if (!roleManager.RoleExists("ExamaUnit"))
+            if (!roleManager.RoleExists("ExamUnit"))
             {
                 var role = new IdentityRole();
-                role.Name = "ExamaUnit";
+                role.Name = "ExamUnit";
                 roleManager.Create(role);
+
+                //Here we create a user for test purofes                  
+
+                var user = new ApplicationUser();
+                user.UserName = "exam@gmail.com";
+                user.Email = "exam@gmail.com";
+                user.FullName = "Abdulrahman Sulaiman";
+                user.PhoneNumber = "08148877252";
+
+                string userPWD = "Aman@2016";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add User to Role ExamaUnit   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "ExamUnit");
+
+                }
 
             }
 
@@ -78,6 +116,24 @@ namespace Grading_SOH_Final_Rel
                 role.Name = "DepartmentUnit";
                 roleManager.Create(role);
 
+                //Here we create a user for test purofes                  
+
+                var user = new ApplicationUser();
+                user.UserName = "dept@gmail.com";
+                user.Email = "dept@gmail.com";
+                user.FullName = "Abdulrahman Sulaiman";
+                user.PhoneNumber = "08148877252";
+
+                string userPWD = "Aman@2016";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add User to Role DepartmentUnit   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "DepartmentUnit");
+
+                }
             }
 
             // creating Creating Student role    
