@@ -6,6 +6,8 @@ using System.Web;
 
 namespace Grading_SOH_Final_Rel.Models
 {
+    //This is the Class for Applicants
+
     public class Applicants
     {
         [Key]
