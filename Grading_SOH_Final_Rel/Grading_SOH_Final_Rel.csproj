@@ -215,12 +215,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminUnitController.cs" />
+    <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\ApplicantsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\DepartmentUnitController.cs" />
+    <Compile Include="Controllers\ExamUnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SemistersController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -576,6 +580,10 @@
     <Content Include="Views\Applicants\Details.cshtml" />
     <Content Include="Views\Applicants\Edit.cshtml" />
     <Content Include="Views\Applicants\Index.cshtml" />
+    <Content Include="Views\DepartmentUnit\Index.cshtml" />
+    <Content Include="Views\Applicant\Index.cshtml" />
+    <Content Include="Views\ExamUnit\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -42,7 +42,7 @@ namespace Grading_SOH_Final_Rel.Models
         public int DepartmentID { get; set; }
         
         [StringLength(50)]
-        public string STATUS { get; set; }
+        public string Status { get; set; }
 
         public virtual Department Department { get; set; }
 

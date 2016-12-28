@@ -23,7 +23,11 @@ namespace Grading_SOH_Final_Rel.Models
 
         [Range(0, 60, ErrorMessage = "Please Enter Valid Exam score")]
         public double? ExamScore { get; set; }
+        
+        public string Status { get; set; }
 
+        [DataType(DataType.DateTime)]
+        public DateTime RegistrationDate { get; set; }
 
         public virtual Course Course { get; set; }
 

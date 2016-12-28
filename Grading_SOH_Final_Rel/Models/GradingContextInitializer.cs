@@ -14,25 +14,19 @@ namespace Grading_SOH_Final_Rel.Models
             context.Sessions.Add(new Session() { SessionName = "2016/2017" });
 
             
-            var grade = new StudentsGrade()
-            {
-                Student = context.Students.Add(new Student()
-                {
-                    StudentID = "1001",
-                    Age = 20,
-                    Department = context.Departments.Add(new Department() { DepartmentName = "FRS" }),
-                    FirstName = "Musa",
-                    HighestQualification = "BSc",
-                    LastName = "Sulaiman",
-                    SurName = "Iliyasu",
-                    Session = context.Sessions.Add(new Session() { SessionName = "2015/2016" }),
-                    STATUS = "Current"
-                })
-            };
-
-
-            context.StudentsGrades.Add(grade);
             
+            context.Students.Add(new Student()
+            {
+                StudentID = "1001",
+                Age = 20,
+                Department = context.Departments.Add(new Department() { DepartmentName = "FRS" }),
+                FirstName = "Musa",
+                HighestQualification = "BSc",
+                LastName = "Sulaiman",
+                SurName = "Iliyasu",
+                Session = context.Sessions.Add(new Session() { SessionName = "2015/2016" }),
+                Status = "Current"
+            });
             
 
             base.InitializeDatabase(context);   

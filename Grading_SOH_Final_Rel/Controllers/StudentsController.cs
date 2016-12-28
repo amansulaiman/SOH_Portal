@@ -22,7 +22,7 @@ namespace Grading_SOH_Final_Rel.Controllers
             studentsList = db.Students.ToList();
 
             ViewBag.studentList = studentsList;
-            var students = db.Students.Include(s => s.Department).Include(s => s.Session).Include(s => s.StudentsGrade);
+            var students = db.Students.Include(s => s.Department).Include(s => s.Session).Include(s => s.StudentsGrades);
             return View(students.ToList());
         }
         //yes

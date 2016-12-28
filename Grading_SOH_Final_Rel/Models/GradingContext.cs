@@ -54,7 +54,7 @@ namespace Grading_SOH_Final_Rel.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Student>()
-                .HasOptional(e => e.StudentsGrade)
+                .HasMany(e => e.StudentsGrades)
                 .WithRequired(e => e.Student);
         }
     }
