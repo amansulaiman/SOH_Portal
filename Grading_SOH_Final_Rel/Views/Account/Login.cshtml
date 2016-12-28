@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-4 col-md-push-4 center-block">
         <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal panel panel-success", role = "form" }))
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal panel panel-info", role = "form"}))
             {
                 @Html.AntiForgeryToken()
 
@@ -19,18 +19,20 @@
                 <div class="panel-body">
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = " Your Email Address" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = " Your Password" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                     </div>
                     <div class="form-group">
