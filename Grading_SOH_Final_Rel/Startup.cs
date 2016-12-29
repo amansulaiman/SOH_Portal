@@ -10,10 +10,12 @@ namespace Grading_SOH_Final_Rel
 {
     public partial class Startup
     {
+
+        
+
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-
             createRolesandUsers();
         }
         // In this method we will create default User roles and Admin user for login   
@@ -28,7 +30,6 @@ namespace Grading_SOH_Final_Rel
             // In Startup iam creating first Admin Role and creating a default Admin User    
             if (!roleManager.RoleExists("Admin"))
             {
-
                 // first we create Admin rool   
                 var role = new IdentityRole();
                 role.Name = "Admin";
@@ -57,26 +58,26 @@ namespace Grading_SOH_Final_Rel
             // creating Creating AcademicUnit role    
             if (!roleManager.RoleExists("AcademicUnit"))
             {
-                var role = new IdentityRole();
-                role.Name = "AcademicUnit";
-                roleManager.Create(role);
+                var role2 = new IdentityRole();
+                role2.Name = "AcademicUnit";
+                roleManager.Create(role2);
 
                 //Here we create a user for test purofes                  
 
-                var user = new ApplicationUser();
-                user.UserName = "academic@gmail.com";
-                user.Email = "academic@gmail.com";
-                user.FullName = "Abdulrahman Sulaiman";
-                user.PhoneNumber = "08148877252";
+                var user2 = new ApplicationUser();
+                user2.UserName = "academic@gmail.com";
+                user2.Email = "academic@gmail.com";
+                user2.FullName = "Abdulrahman Sulaiman";
+                user2.PhoneNumber = "08148877252";
 
-                string userPWD = "Aman@2016";
+                string user2PWD = "Aman@2016";
 
-                var chkUser = UserManager.Create(user, userPWD);
+                var chkUser2 = UserManager.Create(user2, user2PWD);
 
                 //Add User to Role AcademicUnit   
-                if (chkUser.Succeeded)
+                if (chkUser2.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "AcademicUnit");
+                    var result1 = UserManager.AddToRole(user2.Id, "AcademicUnit");
 
                 }
             }
@@ -84,26 +85,26 @@ namespace Grading_SOH_Final_Rel
             // creating Creating ExamaUnit role    
             if (!roleManager.RoleExists("ExamUnit"))
             {
-                var role = new IdentityRole();
-                role.Name = "ExamUnit";
-                roleManager.Create(role);
+                var role3 = new IdentityRole();
+                role3.Name = "ExamUnit";
+                roleManager.Create(role3);
 
                 //Here we create a user for test purofes                  
 
-                var user = new ApplicationUser();
-                user.UserName = "exam@gmail.com";
-                user.Email = "exam@gmail.com";
-                user.FullName = "Abdulrahman Sulaiman";
-                user.PhoneNumber = "08148877252";
+                var user3 = new ApplicationUser();
+                user3.UserName = "exam@gmail.com";
+                user3.Email = "exam@gmail.com";
+                user3.FullName = "Abdulrahman Sulaiman";
+                user3.PhoneNumber = "08148877252";
 
-                string userPWD = "Aman@2016";
+                string userPWD3 = "Aman@2016";
 
-                var chkUser = UserManager.Create(user, userPWD);
+                var chkUser3 = UserManager.Create(user3, userPWD3);
 
                 //Add User to Role ExamaUnit   
-                if (chkUser.Succeeded)
+                if (chkUser3.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "ExamUnit");
+                    var result1 = UserManager.AddToRole(user3.Id, "ExamUnit");
 
                 }
 
@@ -112,26 +113,26 @@ namespace Grading_SOH_Final_Rel
             // creating Creating DepartmentUnit role    
             if (!roleManager.RoleExists("DepartmentUnit"))
             {
-                var role = new IdentityRole();
-                role.Name = "DepartmentUnit";
-                roleManager.Create(role);
+                var role4 = new IdentityRole();
+                role4.Name = "DepartmentUnit";
+                roleManager.Create(role4);
 
-                //Here we create a user for test purofes                  
+                //Here we create a user for test purofes  
 
-                var user = new ApplicationUser();
-                user.UserName = "dept@gmail.com";
-                user.Email = "dept@gmail.com";
-                user.FullName = "Abdulrahman Sulaiman";
-                user.PhoneNumber = "08148877252";
+                var user4 = new ApplicationUser();
+                user4.UserName = "dept@gmail.com";
+                user4.Email = "dept@gmail.com";
+                user4.FullName = "Abdulrahman Sulaiman";
+                user4.PhoneNumber = "08148877252";
 
-                string userPWD = "Aman@2016";
+                string userPWD4 = "Aman@2016";
 
-                var chkUser = UserManager.Create(user, userPWD);
+                var chkUser4 = UserManager.Create(user4, userPWD4);
 
                 //Add User to Role DepartmentUnit   
-                if (chkUser.Succeeded)
+                if (chkUser4.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "DepartmentUnit");
+                    var result1 = UserManager.AddToRole(user4.Id, "DepartmentUnit");
 
                 }
             }
@@ -142,7 +143,6 @@ namespace Grading_SOH_Final_Rel
                 var role = new IdentityRole();
                 role.Name = "Student";
                 roleManager.Create(role);
-
             }
 
             // creating Creating Applicant role    
@@ -151,7 +151,6 @@ namespace Grading_SOH_Final_Rel
                 var role = new IdentityRole();
                 role.Name = "Applicant";
                 roleManager.Create(role);
-
             }
         }
     }

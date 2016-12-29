@@ -54,38 +54,55 @@
 
                 <!--TODO: My Content Here-->
                 <div>
-                    @(Html.EJ().Chart("container")
-        .PrimaryXAxis(pr => pr.Title(tl => tl.Text("Year")).Range(ra => ra.Min(2005).Max(2012).Interval(1)))
-        .PrimaryYAxis(pr => pr.Range(ra => ra.Max(12).Min(3).Interval(1)).Title(tl => tl.Text("Percentage")).LabelFormat("{value}%"))
-        .CommonSeriesOptions(cr => cr.Type(SeriesType.Bar).EnableAnimation(true).Tooltip(tt => tt.Visible(true).Format("#series.name# <br/> #point.x# : #point.y#")).Marker(mr => mr.DataLabel(dt => dt.Visible(true).TextPosition(TextPosition.Top).HorizontalTextAlignment(Syncfusion.JavaScript.DataVisualization.TextAlignment.Near).Font(fn => fn.Size("13px").FontFamily("Segoe UI")))))
+                    @(Html.EJ().Chart("container").ChartArea(cr => cr.Border(ab => ab.Color("transparent")))
+        .PrimaryXAxis(ax => ax.MajorGridLines(mr => mr.Visible(false)).MajorTickLines(mt => mt.Visible(false))
+        .Title(tl => tl.Text("Year")).Range(ra => ra.Max(2000).Min(1900).Interval(10)))
+        .PrimaryYAxis(pr => pr.AxisLine(ax => ax.Visible(false)).MajorTickLines(mt => mt.Visible(false))
+        .Title(tl => tl.Text("Student Passed in Hundreds")).Range(ra => ra.Max(5).Min(2).Interval(0.5)))
         .Series(sr =>
             {
                 sr.Points(pt =>
                     {
-                        pt.X("2006").Y(7.8).Add();
-                        pt.X("2007").Y(7.2).Add();
-                        pt.X("2008").Y(6.8).Add();
-                        pt.X("2009").Y(10.7).Add();
-                        pt.X("2010").Y(10.8).Add();
-                        pt.X("2011").Y(9.8).Add();
-                    }).Name("India").Add();
+                        pt.X("1900").Y(4).Add();
+                        pt.X("1920").Y(3.0).Add();
+                        pt.X("1940").Y(3.8).Add();
+                        pt.X("1960").Y(3.4).Add();
+                        pt.X("1980").Y(3.2).Add();
+                        pt.X("2000").Y(3.9).Add();
+                    }).Name("Course A").Type(SeriesType.Area).EnableAnimation(true)
+                      .Border(s1B => s1B.Color("transparent")).Opacity(0.5).Fill("#69D2E7").Add();
+
                 sr.Points(pt =>
                 {
-                    pt.X("2006").Y(4.8).Add();
-                    pt.X("2007").Y(4.6).Add();
-                    pt.X("2008").Y(7.2).Add();
-                    pt.X("2009").Y(9.3).Add();
-                    pt.X("2010").Y(9.7).Add();
-                    pt.X("2011").Y(9).Add();
-                }).Name("US").Add();
+                    pt.X("1900").Y(2.6).Add();
+                    pt.X("1920").Y(2.8).Add();
+                    pt.X("1940").Y(2.6).Add();
+                    pt.X("1960").Y(3).Add();
+                    pt.X("1980").Y(3.6).Add();
+                    pt.X("2000").Y(3).Add();
+                }).Name("Course B").Type(SeriesType.Area).EnableAnimation(true)
+                  .Border(s2B => s2B.Color("transparent")).Opacity(0.5).Fill("#C4C24A").Add();
+
+                sr.Points(pt =>
+                {
+                    pt.X("1900").Y(2.8).Add();
+                    pt.X("1920").Y(2.5).Add();
+                    pt.X("1940").Y(2.8).Add();
+                    pt.X("1960").Y(3.2).Add();
+                    pt.X("1980").Y(2.9).Add();
+                    pt.X("2000").Y(2).Add();
+                }).Name("Course C").Type(SeriesType.Area).EnableAnimation(true)
+                  .Border(s3B => s3B.Color("transparent")).Opacity(0.5).Fill("#6A4B82").Add();
             })
-        .Load("loadTheme")
-        .DisplayTextRendering("OndataLabel")
         .IsResponsive(true)
-        .Title(t => t.Text("Unemployment rate (%)"))
+        .Load("loadTheme")
+        .Title(title => title.Text("Average Student Perferformance Comparison"))
         .Size(sz => sz.Height("600"))
-        .Legend(lg => { lg.Visible(true).Position(LegendPosition.Right).Alignment(Syncfusion.JavaScript.DataVisualization.TextAlignment.Near); })
+        .Legend(lg => { lg.Visible(true); })
                     )
+                    <script>
+                        $("#controlarea").css("visibility", "visible");
+                    </script>
                 </div>
 
 
@@ -108,14 +125,18 @@
 
 </div>
 
-@section ScriptSection{
+@*@section ScriptSection{
     <script>
-        function OndataLabel(sender) {
-            sender.data.location.x = sender.data.location.x + 20;
-        }
-        $("#controlarea").css("visibility", "visible");
-    </script>
-}
+         function onchartload(sender) {
+             loadTheme(sender);
+             sender.model.primaryXAxis.majorGridLines.color = "#a9a9a9";
+             sender.model.primaryXAxis.majorGridLines.opacity = 0.12;
+             sender.model.primaryYAxis.majorGridLines.color = "#a9a9a9";
+             sender.model.primaryYAxis.majorGridLines.opacity = 0.12;
+         }
+         $("#controlarea").css("visibility", "visible");
+</script>
+}*@
 @section scripts{
     <!-- Menu Toggle Script -->
     <script>

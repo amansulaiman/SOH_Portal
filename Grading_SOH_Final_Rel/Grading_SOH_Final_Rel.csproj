@@ -233,10 +233,10 @@
     <Compile Include="Models\Applicants.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\GradingContext.cs" />
     <Compile Include="Models\GradingContextInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PortalContext.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Semister.cs" />
     <Compile Include="Models\Session.cs" />
@@ -585,7 +585,6 @@
     <Content Include="Views\ExamUnit\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

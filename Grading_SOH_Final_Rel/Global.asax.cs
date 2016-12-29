@@ -15,7 +15,8 @@ namespace Grading_SOH_Final_Rel
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<GradingContext>(new GradingContextInitializer());
+            //Database.SetInitializer<ApplicationDbContext>(new GradingContextInitializer());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

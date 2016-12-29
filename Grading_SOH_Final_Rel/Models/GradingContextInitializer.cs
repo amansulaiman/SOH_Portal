@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,15 +8,15 @@ using System.Web;
 
 namespace Grading_SOH_Final_Rel.Models
 {
-    public class GradingContextInitializer: DropCreateDatabaseAlways<GradingContext>
+    public class GradingContextInitializer: DropCreateDatabaseAlways<PortalContext>
     {
-        public override void InitializeDatabase(GradingContext context)
+        public override void InitializeDatabase(PortalContext context)
         {
-            context.Departments.Add(new Department() { DepartmentName = "CSC" });
+            var Depat = context.Departments.Add(new Department() { DepartmentName = "Health Education" });
             context.Sessions.Add(new Session() { SessionName = "2016/2017" });
 
-            
-            
+
+
             context.Students.Add(new Student()
             {
                 StudentID = "1001",
@@ -27,8 +29,6 @@ namespace Grading_SOH_Final_Rel.Models
                 Session = context.Sessions.Add(new Session() { SessionName = "2015/2016" }),
                 Status = "Current"
             });
-            
-
             base.InitializeDatabase(context);   
         }
     }

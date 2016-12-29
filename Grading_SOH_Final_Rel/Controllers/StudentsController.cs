@@ -13,7 +13,7 @@ namespace Grading_SOH_Final_Rel.Controllers
    // [Authorize]
     public class StudentsController : Controller
     {
-        private GradingContext db = new GradingContext();
+        private PortalContext db = new PortalContext();
 
         // GET: Students
         public ActionResult Index()

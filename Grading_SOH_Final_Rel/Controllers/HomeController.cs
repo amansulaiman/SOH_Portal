@@ -25,22 +25,22 @@ namespace Grading_SOH_Final_Rel.Controllers
                     return RedirectToAction("Index", "ExamUnit");
                 }
 
-                if  (isAcademicUnit())
+                if (isAcademicUnit())
                 {
                     return RedirectToAction("Index", "AcademicUnit");
                 }
 
-                if  (isDepartmentUnit())
+                if (isDepartmentUnit())
                 {
                     return RedirectToAction("Index", "DepartmentUnit");
                 }
 
-                if  (isStudent())
+                if (isStudent())
                 {
                     //Return to Student page
                 }
 
-                if  (isApplicant())
+                if (isApplicant())
                 {
                     //Return to Applicant page
                 }

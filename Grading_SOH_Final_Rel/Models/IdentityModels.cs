@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grading_SOH_Final_Rel.Models
 {
@@ -11,7 +12,11 @@ namespace Grading_SOH_Final_Rel.Models
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
+
+        
         public Department Department { get; set; }
+
+        public Int32? DepartmentID { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -33,5 +38,7 @@ namespace Grading_SOH_Final_Rel.Models
         {
             return new ApplicationDbContext();
         }
+
+       
     }
 }
