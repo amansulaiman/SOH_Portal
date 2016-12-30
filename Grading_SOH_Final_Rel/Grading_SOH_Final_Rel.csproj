@@ -229,6 +229,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Applicants.cs" />
     <Compile Include="Models\Course.cs" />
@@ -236,8 +237,6 @@
     <Compile Include="Models\GradingContextInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PortalContext.cs" />
-    <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Semister.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Student.cs" />

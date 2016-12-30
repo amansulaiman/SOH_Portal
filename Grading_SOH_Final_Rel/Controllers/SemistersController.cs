@@ -12,7 +12,7 @@ namespace Grading_SOH_Final_Rel.Controllers
 {
     public class SemistersController : Controller
     {
-        private PortalContext db = new PortalContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Semisters
         public ActionResult Index()

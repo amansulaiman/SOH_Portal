@@ -5,6 +5,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 
 namespace Grading_SOH_Final_Rel.Models
 {
@@ -39,6 +42,13 @@ namespace Grading_SOH_Final_Rel.Models
             return new ApplicationDbContext();
         }
 
-       
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Semister> Semisters { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentsGrade> StudentsGrades { get; set; }
+        public virtual DbSet<Applicants> Applicants { get; set; }
+        
     }
 }

@@ -8,11 +8,6 @@ namespace Grading_SOH_Final_Rel.Models
 
     public partial class Semister
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Semister()
-        {
-            Courses = new HashSet<Course>();
-        }
         
         public int SemisterID { get; set; }
 
@@ -21,13 +16,12 @@ namespace Grading_SOH_Final_Rel.Models
         public string SemisterName { get; set; }
 
         public int SessionID { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
+        
+        public virtual List<Course> Courses { get; set; }
 
         public virtual Session Session { get; set; }
 
-        public enum sessions
+        public enum Sessions
         {
             First_Semister, Second_Semister
         }

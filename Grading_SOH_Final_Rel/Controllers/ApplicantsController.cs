@@ -12,7 +12,7 @@ namespace Grading_SOH_Final_Rel.Controllers
 {
     public class ApplicantsController : Controller
     {
-        private PortalContext db = new PortalContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Applicants
         public ActionResult Index()

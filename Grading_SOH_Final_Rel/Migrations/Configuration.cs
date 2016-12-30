@@ -1,21 +1,40 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace Grading_SOH_Final_Rel.Models
+namespace Grading_SOH_Final_Rel.Migrations
 {
-    public class GradingContextInitializer: DropCreateDatabaseAlways<ApplicationDbContext>
-    {
-        public override void InitializeDatabase(ApplicationDbContext context)
-        {
-            context.Departments.Add(new Department() { DepartmentName = "CSC" });
-            context.Sessions.Add(new Session() { SessionName = "2016/2017" });
+    using Grading_SOH_Final_Rel.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
-            context.Students.Add(
+    internal sealed class Configuration : DbMigrationsConfiguration<Grading_SOH_Final_Rel.Models.ApplicationDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+        }
+
+        protected override void Seed(Grading_SOH_Final_Rel.Models.ApplicationDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+            context.Departments.AddOrUpdate(d => d.DepartmentID,
+                new Department() { DepartmentName = "CSC" });
+            context.Sessions.AddOrUpdate(s => s.SessionID,
+                new Session() { SessionName = "2016/2017" });
+
+            context.Students.AddOrUpdate(st => st.StudentID,
                 new Student()
                 {
                     StudentID = "1001",
@@ -171,7 +190,6 @@ namespace Grading_SOH_Final_Rel.Models
                 role.Name = "Applicant";
                 roleManager.Create(role);
             }
-            base.InitializeDatabase(context);   
         }
     }
 }

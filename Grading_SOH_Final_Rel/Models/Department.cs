@@ -9,23 +9,15 @@ namespace Grading_SOH_Final_Rel.Models
     [Table("Department")]
     public partial class Department
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Department()
-        {
-            Courses = new HashSet<Course>();
-            Students = new HashSet<Student>();
-        }
 
         public int DepartmentID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string DepartmentName { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        
+        public virtual List<Course> Courses { get; set; }
+        
+        public virtual List<Student> Students { get; set; }
     }
 }

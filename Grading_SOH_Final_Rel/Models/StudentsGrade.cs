@@ -16,7 +16,7 @@ namespace Grading_SOH_Final_Rel.Models
         public string StudentID { get; set; }
 
         [StringLength(50)]
-        public string CourseCode { get; set; }
+        public string CourseID { get; set; }
 
         [Range(0, 40, ErrorMessage = "Please Enter Valid ExaTestm score")]
         public double? TestScore { get; set; }

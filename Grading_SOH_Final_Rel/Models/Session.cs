@@ -9,12 +9,6 @@ namespace Grading_SOH_Final_Rel.Models
     [Table("Session")]
     public partial class Session
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Session()
-        {
-            Semisters = new HashSet<Semister>();
-            Students = new HashSet<Student>();
-        }
 
         public int SessionID { get; set; }
 
@@ -23,11 +17,9 @@ namespace Grading_SOH_Final_Rel.Models
         
         [Display(Name ="Session Name")]
         public string SessionName { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Semister> Semisters { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        
+        public virtual List<Semister> Semisters { get; set; }
+        
+        public virtual List<Student> Students { get; set; }
     }
 }
