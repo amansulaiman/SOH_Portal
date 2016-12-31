@@ -114,6 +114,12 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RouteJs, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RouteJs.Mvc5.2.1.0\lib\net45\RouteJs.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteJs.Mvc5, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RouteJs.Mvc5.2.1.0\lib\net45\RouteJs.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Chart.Wpf, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Compression.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.DocIO.Base, Version=14.4450.0.15, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
@@ -199,6 +205,9 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Data.SqlServerCe" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -217,6 +226,7 @@
     <Compile Include="Controllers\AcademicUnitController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\ApplicantsController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DepartmentUnitController.cs" />
     <Compile Include="Controllers\ExamUnitController.cs" />
@@ -228,6 +238,10 @@
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612301654578_addstd.cs" />
+    <Compile Include="Migrations\201612301654578_addstd.Designer.cs">
+      <DependentUpon>201612301654578_addstd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -273,6 +287,61 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\AdminLTE.css" />
+    <Content Include="Content\css\AdminLTE.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datepicker3.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\icheck\aero.css" />
+    <Content Include="Content\css\icheck\aero.min.css" />
+    <Content Include="Content\css\icheck\blue.css" />
+    <Content Include="Content\css\icheck\blue.min.css" />
+    <Content Include="Content\css\icheck\green.css" />
+    <Content Include="Content\css\icheck\green.min.css" />
+    <Content Include="Content\css\icheck\grey.css" />
+    <Content Include="Content\css\icheck\grey.min.css" />
+    <Content Include="Content\css\icheck\minimal.css" />
+    <Content Include="Content\css\icheck\minimal.min.css" />
+    <Content Include="Content\css\icheck\orange.css" />
+    <Content Include="Content\css\icheck\orange.min.css" />
+    <Content Include="Content\css\icheck\pink.css" />
+    <Content Include="Content\css\icheck\pink.min.css" />
+    <Content Include="Content\css\icheck\purple.css" />
+    <Content Include="Content\css\icheck\purple.min.css" />
+    <Content Include="Content\css\icheck\red.css" />
+    <Content Include="Content\css\icheck\red.min.css" />
+    <Content Include="Content\css\icheck\yellow.css" />
+    <Content Include="Content\css\icheck\yellow.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\skins\skin-black-light.css" />
+    <Content Include="Content\css\skins\skin-black-light.min.css" />
+    <Content Include="Content\css\skins\skin-black.css" />
+    <Content Include="Content\css\skins\skin-black.min.css" />
+    <Content Include="Content\css\skins\skin-blue-light.css" />
+    <Content Include="Content\css\skins\skin-blue-light.min.css" />
+    <Content Include="Content\css\skins\skin-blue.css" />
+    <Content Include="Content\css\skins\skin-blue.min.css" />
+    <Content Include="Content\css\skins\skin-green-light.css" />
+    <Content Include="Content\css\skins\skin-green-light.min.css" />
+    <Content Include="Content\css\skins\skin-green.css" />
+    <Content Include="Content\css\skins\skin-green.min.css" />
+    <Content Include="Content\css\skins\skin-purple-light.css" />
+    <Content Include="Content\css\skins\skin-purple-light.min.css" />
+    <Content Include="Content\css\skins\skin-purple.css" />
+    <Content Include="Content\css\skins\skin-purple.min.css" />
+    <Content Include="Content\css\skins\skin-red-light.css" />
+    <Content Include="Content\css\skins\skin-red-light.min.css" />
+    <Content Include="Content\css\skins\skin-red.css" />
+    <Content Include="Content\css\skins\skin-red.min.css" />
+    <Content Include="Content\css\skins\skin-yellow-light.css" />
+    <Content Include="Content\css\skins\skin-yellow-light.min.css" />
+    <Content Include="Content\css\skins\skin-yellow.css" />
+    <Content Include="Content\css\skins\skin-yellow.min.css" />
+    <Content Include="Content\css\skins\_all-skins.css" />
+    <Content Include="Content\css\skins\_all-skins.min.css" />
     <Content Include="Content\datatables\dataTables.bootstrap.css" />
     <Content Include="Content\datatables\dataTables.bootstrap.js" />
     <Content Include="Content\datatables\dataTables.bootstrap.min.js" />
@@ -459,6 +528,56 @@
     <Content Include="Content\datatables\jquery.dataTables.min.js" />
     <Content Include="Content\datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Content\ej\ej.responsive.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\icheck\aero%402x.png" />
+    <Content Include="Content\img\icheck\aero.png" />
+    <Content Include="Content\img\icheck\blue%402x.png" />
+    <Content Include="Content\img\icheck\blue.png" />
+    <Content Include="Content\img\icheck\green%402x.png" />
+    <Content Include="Content\img\icheck\green.png" />
+    <Content Include="Content\img\icheck\grey%402x.png" />
+    <Content Include="Content\img\icheck\grey.png" />
+    <Content Include="Content\img\icheck\minimal%402x.png" />
+    <Content Include="Content\img\icheck\minimal.png" />
+    <Content Include="Content\img\icheck\orange%402x.png" />
+    <Content Include="Content\img\icheck\orange.png" />
+    <Content Include="Content\img\icheck\pink%402x.png" />
+    <Content Include="Content\img\icheck\pink.png" />
+    <Content Include="Content\img\icheck\purple%402x.png" />
+    <Content Include="Content\img\icheck\purple.png" />
+    <Content Include="Content\img\icheck\red%402x.png" />
+    <Content Include="Content\img\icheck\red.png" />
+    <Content Include="Content\img\icheck\yellow%402x.png" />
+    <Content Include="Content\img\icheck\yellow.png" />
+    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\app.min.js" />
+    <Content Include="Content\js\init.js" />
+    <Content Include="Content\js\plugins\bootstrap\bootstrap.js" />
+    <Content Include="Content\js\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\js\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\js\plugins\fastclick\fastclick.js" />
+    <Content Include="Content\js\plugins\fastclick\fastclick.min.js" />
+    <Content Include="Content\js\plugins\icheck\icheck.js" />
+    <Content Include="Content\js\plugins\icheck\icheck.min.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.extensions.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.numeric.extensions.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.phone.extensions.js" />
+    <Content Include="Content\js\plugins\input-mask\jquery.inputmask.regex.extensions.js" />
+    <Content Include="Content\js\plugins\jquery\jquery-2.2.4.js" />
+    <Content Include="Content\js\plugins\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Content\js\plugins\moment\moment.js" />
+    <Content Include="Content\js\plugins\moment\moment.min.js" />
+    <Content Include="Content\js\plugins\select2\i18n\en.js" />
+    <Content Include="Content\js\plugins\select2\select2.full.js" />
+    <Content Include="Content\js\plugins\select2\select2.full.min.js" />
+    <Content Include="Content\js\plugins\select2\select2.js" />
+    <Content Include="Content\js\plugins\select2\select2.min.js" />
+    <Content Include="Content\js\plugins\slimscroll\jquery.slimscroll.js" />
+    <Content Include="Content\js\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -485,6 +604,17 @@
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\ej\ej.globalize.min.js" />
     <Content Include="Scripts\ej\ej.unobtrusive.min.js" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\ej\ej.web.all.min.intellisense.js" />
     <Content Include="Scripts\ej\ej.web.all.min.js" />
     <Content Include="Scripts\ej\ej.widget.angular.min.js" />
@@ -583,12 +713,22 @@
     <Content Include="Views\Applicant\Index.cshtml" />
     <Content Include="Views\ExamUnit\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Shared\_Dashboard.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_ControlSidebar.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612301654578_addstd.resx">
+      <DependentUpon>201612301654578_addstd.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
