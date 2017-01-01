@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/ej/web/bootstrap-theme/ej.web.all.min.css")
-      @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
-    @Scripts.Render("~/Scripts/jsrender.min.js")
-    @Scripts.Render("~/Scripts/ej/ej.web.all.min.js")
-    @Scripts.Render("~/Scripts/dataTables.bootstrap.min.js")
-    @Scripts.Render("~/Scripts/jquery.dataTables.min.js")
-    <link href="~/Content/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizer")
      
 </head>
 <body>
@@ -39,14 +33,9 @@
          @RenderBody()   	     
    </div>
    
-           
-       @Html.EJ().ScriptManager()
-    @if (IsSectionDefined("ScriptSection"))
-    {
-        @RenderSection("ScriptSection", required: false)
-    }
 
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     
 

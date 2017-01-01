@@ -40,10 +40,10 @@ namespace Grading_SOH_Final_Rel
                 .Include("~/Content/css/select2.css")
                 .Include("~/Content/css/datepicker3.css")
                 .Include("~/Content/css/AdminLTE.css")
-                .Include("~/Content/css/skins/skin-blue.css"));
+                .Include("~/Content/css/skins/skin-blue.css")
+                .Include("~/Content/MyStyle.css"));
 
             bundles.Add(new ScriptBundle("~/Bundles/js")
-                .Include("~/Content/js/plugins/jquery/jquery-2.2.4.js")
                 .Include("~/Content/js/plugins/bootstrap/bootstrap.js")
                 .Include("~/Content/js/plugins/fastclick/fastclick.js")
                 .Include("~/Content/js/plugins/slimscroll/jquery.slimscroll.js")

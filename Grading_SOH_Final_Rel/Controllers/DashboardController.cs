@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace Grading_SOH_Final_Rel.Controllers
 {
+    [Authorize]
+
     public class DashboardController : Controller
     {
         // GET: Dashboard

@@ -4,9 +4,11 @@
  */
 .skin-blue .main-header .navbar {
   background-color: #3c8dbc;
+  height: 50px;
 }
 .skin-blue .main-header .navbar .nav > li > a {
-  color: #ffffff;
+        color: #ffffff;
+        height: 50px;
 }
 .skin-blue .main-header .navbar .nav > li > a:hover,
 .skin-blue .main-header .navbar .nav > li > a:active,
@@ -27,6 +29,7 @@
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
   color: #fff;
+  height: 50px;
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
   background-color: #367fa9;

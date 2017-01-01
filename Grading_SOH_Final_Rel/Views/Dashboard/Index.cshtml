@@ -1,5 +1,100 @@
-﻿@{
-    ViewBag.Title = "Index";
-    ViewBag.Description = "Home Page";
+﻿@using Microsoft.AspNet.Identity
+@using Grading_SOH_Final_Rel.Models
+@{
+    var db = new ApplicationDbContext();
+    var nameU = db.Users.Find(User.Identity.GetUserId());
+
+}
+@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.Description = "General Overview";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<!--START SIDE BAR-->
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p>@nameU.FullName</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search Student...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu">
+            <li class="header">Menu</li>
+            <!--Navigation Menu-->
+            @*@if (User.IsInRole("admin"))
+                {
+
+                }*@
+            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>
+<!--END OF SIDE BAR-->
+
+<!--START MAIN CONTENT -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+            <small>@ViewBag.Description</small>
+        </h1>
+    </section>
+    <section class="content">
+        <!--PAGE CONTENT-->
+        <div>
+
+            @(Html.EJ().Chart("chartContainer"))
+
+        </div>
+        <!--END OF PAGE CONTENT-->
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+
+<!--BEGIN FOOTER-->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Developed &amp; Maintained by <a href="http://c3nx.com">C3NX Technology Solutions</a></b>
+    </div>
+    <strong>Copyright © @DateTime.Now.Date.Year <a href="http://almsaeedstudio.com">School of Hygiene, Kano</a>.</strong> All rights reserved.
+</footer>
+<!--END FOOTER-->
+
+
+@section ScriptSection
+{
+
 }

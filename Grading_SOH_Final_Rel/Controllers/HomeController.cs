@@ -15,35 +15,7 @@ namespace Grading_SOH_Final_Rel.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                if (isAdminUser())
-                {
-                    //Return to Admin age
-                }
-
-                if (isExamUnit())
-                {
-                    return RedirectToAction("Index", "ExamUnit");
-                }
-
-                if (isAcademicUnit())
-                {
-                    return RedirectToAction("Index", "AcademicUnit");
-                }
-
-                if (isDepartmentUnit())
-                {
-                    return RedirectToAction("Index", "DepartmentUnit");
-                }
-
-                if (isStudent())
-                {
-                    //Return to Student page
-                }
-
-                if (isApplicant())
-                {
-                    //Return to Applicant page
-                }
+                return RedirectToAction("Index", "Dashboard");
             }
             return View();
         }
@@ -148,19 +120,6 @@ namespace Grading_SOH_Final_Rel.Controllers
             return false;
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         public Boolean isAdminUser()
         {
             if (User.Identity.IsAuthenticated)
@@ -180,5 +139,20 @@ namespace Grading_SOH_Final_Rel.Controllers
             }
             return false;
         }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+       
     }
 }

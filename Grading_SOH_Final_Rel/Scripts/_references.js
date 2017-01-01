@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery-3.1.1.js" />
+﻿/// <reference path="jquery-1.10.2.js" />
 /// <autosync enabled="true" />
 /// <reference path="../content/datatables/datatables.bootstrap.min.js" />
 /// <reference path="../content/datatables/extensions/autofill/js/datatables.autofill.js" />
