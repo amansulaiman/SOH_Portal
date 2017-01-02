@@ -11,7 +11,7 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<!--START SIDE BAR-->
+<!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -20,14 +20,14 @@
                 <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>@nameU.FullName</p>
+                <p style="font-size:14px">@nameU.FullName.ToString().Substring(0,18).Trim() ...</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         @* BEGIN Search *@
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search Student...">
+                <input type="text" name="q" class="form-control" placeholder="Search ...">
                 <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                         <i class="fa fa-search"></i>
@@ -45,17 +45,17 @@
 
                 }*@
             <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li><a href="#"><i class="fa fa-registered"></i> <span>Course Registration</span></a></li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <i class="fa fa-pencil"></i> <span>Result Entry</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Normal Entry</a></li>
+                    <li><a href="#">Batch Entry</a></li>
                 </ul>
             </li>
         </ul>
@@ -64,7 +64,7 @@
 </aside>
 <!--END OF SIDE BAR-->
 
-<!--START MAIN CONTENT -->
+<!--BEGIN MAIN CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
@@ -74,22 +74,22 @@
     </section>
     <section class="content">
         <!--PAGE CONTENT-->
-        <div>
-
-            @(Html.EJ().Chart("chartContainer"))
+        <div class="row">
+            <div class="col-md-12">
+                @(Html.EJ().Chart("chartContainer"))
+            </div>
 
         </div>
         <!--END OF PAGE CONTENT-->
     </section>
 </div>
 <!--END MAIN CONTENT -->
-
 <!--BEGIN FOOTER-->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Developed &amp; Maintained by <a href="http://c3nx.com">C3NX Technology Solutions</a></b>
     </div>
-    <strong>Copyright © @DateTime.Now.Date.Year <a href="http://almsaeedstudio.com">School of Hygiene, Kano</a>.</strong> All rights reserved.
+    <strong>Copyright © @DateTime.Now.Date.Year <a href="http://soh.edu.ng">School of Hygiene, Kano</a>.</strong> All rights reserved.
 </footer>
 <!--END FOOTER-->
 
