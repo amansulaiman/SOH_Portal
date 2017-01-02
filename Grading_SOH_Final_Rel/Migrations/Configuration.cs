@@ -60,28 +60,6 @@ namespace Grading_SOH_Final_Rel.Migrations
                 role.Name = "Admin";
                 roleManager.Create(role);
 
-                //Here we create a Admin super user who will maintain the website                  
-
-                if (!context.Users.Any(u => u.UserName == "amansulaiman92@gmail.com"))
-                {
-                    var user = new ApplicationUser();
-                    user.UserName = "amansulaiman92@gmail.com";
-                    user.Email = "amansulaiman92@gmail.com";
-                    user.FullName = "Abdulrahman Sulaiman";
-                    user.PhoneNumber = "08148877252";
-
-                    string userPWD = "Aman@2016";
-
-                    var chkUser = UserManager.Create(user, userPWD);
-
-                    //Add default User to Role Admin   
-                    if (chkUser.Succeeded)
-                    {
-                        var result1 = UserManager.AddToRole(user.Id, "Admin");
-
-                    }
-                }
-
             }
 
             // creating Creating AcademicUnit role    
@@ -91,27 +69,6 @@ namespace Grading_SOH_Final_Rel.Migrations
                 role2.Name = "AcademicUnit";
                 roleManager.Create(role2);
 
-                //Here we create a user for test purofes                  
-
-                if (!context.Users.Any(u => u.UserName == "academic@gmail.com"))
-                {
-                    var user2 = new ApplicationUser();
-                    user2.UserName = "academic@gmail.com";
-                    user2.Email = "academic@gmail.com";
-                    user2.FullName = "Abdulrahman Sulaiman";
-                    user2.PhoneNumber = "08148877252";
-
-                    string user2PWD = "Aman@2016";
-
-                    var chkUser2 = UserManager.Create(user2, user2PWD);
-
-                    //Add User to Role AcademicUnit   
-                    if (chkUser2.Succeeded)
-                    {
-                        var result1 = UserManager.AddToRole(user2.Id, "AcademicUnit");
-
-                    }
-                }
             }
 
             // creating Creating ExamaUnit role    
@@ -120,28 +77,6 @@ namespace Grading_SOH_Final_Rel.Migrations
                 var role3 = new IdentityRole();
                 role3.Name = "ExamUnit";
                 roleManager.Create(role3);
-
-                //Here we create a user for test purofes                  
-
-                if (!context.Users.Any(u => u.UserName == "exam@gmail.com"))
-                {
-                    var user3 = new ApplicationUser();
-                    user3.UserName = "exam@gmail.com";
-                    user3.Email = "exam@gmail.com";
-                    user3.FullName = "Abdulrahman Sulaiman";
-                    user3.PhoneNumber = "08148877252";
-
-                    string userPWD3 = "Aman@2016";
-
-                    var chkUser3 = UserManager.Create(user3, userPWD3);
-
-                    //Add User to Role ExamaUnit   
-                    if (chkUser3.Succeeded)
-                    {
-                        var result1 = UserManager.AddToRole(user3.Id, "ExamUnit");
-
-                    }
-                }
 
             }
 
@@ -152,27 +87,6 @@ namespace Grading_SOH_Final_Rel.Migrations
                 role4.Name = "DepartmentUnit";
                 roleManager.Create(role4);
 
-                //Here we create a user for test purofes  
-
-                if (!context.Users.Any(u => u.UserName == "dept@gmail.com"))
-                {
-                    var user4 = new ApplicationUser();
-                    user4.UserName = "dept@gmail.com";
-                    user4.Email = "dept@gmail.com";
-                    user4.FullName = "Abdulrahman Sulaiman";
-                    user4.PhoneNumber = "08148877252";
-
-                    string userPWD4 = "Aman@2016";
-
-                    var chkUser4 = UserManager.Create(user4, userPWD4);
-
-                    //Add User to Role DepartmentUnit   
-                    if (chkUser4.Succeeded)
-                    {
-                        var result1 = UserManager.AddToRole(user4.Id, "DepartmentUnit");
-
-                    }
-                }
             }
 
             // creating Creating Student role    
@@ -189,6 +103,57 @@ namespace Grading_SOH_Final_Rel.Migrations
                 var role = new IdentityRole();
                 role.Name = "Applicant";
                 roleManager.Create(role);
+            }
+
+            //Check if the user existed
+            if (!context.Users.Any(u => u.UserName == "amansulaiman92@gmail.com"))
+            {
+                var user = new ApplicationUser();
+                user.UserName = "amansulaiman92@gmail.com";
+                user.Email = "amansulaiman92@gmail.com";
+                user.FullName = "Abdulrahman Sulaiman";
+                user.PhoneNumber = "08148877252";
+
+                string userPWD = "Aman@2016";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add Test User to All Roles for Test 
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRoles(user.Id, "Admin", "AcademicUnit", "ExamUnit", "DepartmentUnit");
+
+                }
+            }
+            else
+            {
+                //If exist Add him to All Roles for Test 
+
+                var uu = context.Users.Any(u => u.UserName == "amansulaiman92@gmai.com");
+
+                var user = from p in context.Users
+                            where p.UserName == "amansulaiman92@gmail.com"
+                            select p;
+
+                if (!UserManager.IsInRole(user.First().Id, "Admin"))
+                {
+                    UserManager.AddToRole(user.First().Id, "Admin");
+                }
+
+                if (!UserManager.IsInRole(user.First().Id, "AcademicUnit"))
+                {
+                    UserManager.AddToRole(user.First().Id, "AcademicUnit");
+                }
+
+                if (!UserManager.IsInRole(user.First().Id, "ExamUnit"))
+                {
+                    UserManager.AddToRole(user.First().Id, "ExamUnit");
+                }
+
+                if (!UserManager.IsInRole(user.First().Id, "DepartmentUnit"))
+                {
+                    UserManager.AddToRole(user.First().Id, "DepartmentUnit");
+                }
             }
         }
     }

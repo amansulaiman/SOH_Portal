@@ -14,7 +14,6 @@ namespace Grading_SOH_Final_Rel.Models
 
         [Required]
         [StringLength(50)]
-        
         [Display(Name ="Session Name")]
         public string SessionName { get; set; }
         

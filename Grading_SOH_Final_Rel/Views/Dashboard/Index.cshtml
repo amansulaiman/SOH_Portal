@@ -40,12 +40,60 @@
         <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <!--Navigation Menu-->
+
+            <!--General Menu -->
+            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
             @*@if (User.IsInRole("admin"))
                 {
 
                 }*@
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-registered"></i> <span>Course Registration</span></a></li>
+
+            <!--Academic Unit Menu-->
+            <li><a href="#"><i class="fa fa-calendar"></i> <span>Academic Sessions</span></a></li>
+            <li><a href="#"><i class="fa fa-book"></i> <span>Academic Semisters</span></a></li>
+            <li><a href="#"><i class="fa fa-building"></i> <span>School Departments</span></a></li>
+            <li><a href="#"><i class="fa fa-pencil-square"></i> <span>Students Registration</span></a></li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-globe"></i> <span>Online Applications</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Applicatants</a></li>
+                    <li><a href="#">Admitted Applicants</a></li>
+                    <li><a href="#">Applicants Report</a></li>
+                </ul>
+            </li>
+
+            <!--Department Unit Menu-->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>Department Students</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Current</a></li>
+                    <li><a href="#">Graduated</a></li>
+                    <li><a href="#">Withdrawl</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i> <span>Department Courses</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Course List</a></li>
+                    <li><a href="#">Course Registration</a></li>
+                </ul>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pencil"></i> <span>Result Entry</span>
@@ -58,6 +106,16 @@
                     <li><a href="#">Batch Entry</a></li>
                 </ul>
             </li>
+            <li><a href="#"><i class="fa fa-print"></i> <span>Result Printing</span></a></li>
+            <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Result Analysis</span></a></li>
+
+            <!--Exam Unit Menu-->
+            <li><a href="#"><i class="fa fa-database"></i> <span>Result Approval</span></a></li>
+            <li><a href="#"><i class="fa fa-pencil-square-o"></i> <span>Result Modification</span></a></li>
+            <li><a href="#"><i class="fa fa-print"></i> <span>Result Printing</span></a></li>
+            <li><a href="#"><i class="fa fa-pie-chart"></i> <span>Result Analysis</span></a></li>
+            <li><a href="#"><i class="fa fa-certificate"></i> <span>Certificate Generator</span></a></li>
+            <li><a href="#"><i class="fa fa-graduation-cap"></i> <span>Transcript Generator</span></a></li>
         </ul>
         @* END Menu *@
     </section>

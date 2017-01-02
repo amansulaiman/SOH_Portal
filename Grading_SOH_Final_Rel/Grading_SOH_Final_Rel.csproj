@@ -226,6 +226,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -303,8 +304,12 @@
     <Content Include="Content\css\icheck\purple.min.css" />
     <Content Include="Content\css\icheck\red.css" />
     <Content Include="Content\css\icheck\red.min.css" />
+    <Content Include="Content\css\icheck\square\blue%402x.png" />
+    <Content Include="Content\css\icheck\square\blue.css" />
+    <Content Include="Content\css\icheck\square\blue.png" />
     <Content Include="Content\css\icheck\yellow.css" />
     <Content Include="Content\css\icheck\yellow.min.css" />
+    <Content Include="Content\css\ionicons.min.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\skins\skin-black-light.css" />
@@ -682,6 +687,11 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_ControlSidebar.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Sessions\Create.cshtml" />
+    <Content Include="Views\Sessions\Delete.cshtml" />
+    <Content Include="Views\Sessions\Details.cshtml" />
+    <Content Include="Views\Sessions\Edit.cshtml" />
+    <Content Include="Views\Sessions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
