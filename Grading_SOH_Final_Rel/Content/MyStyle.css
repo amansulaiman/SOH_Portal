@@ -1,6 +1,20 @@
 ﻿body {
+    font-family:'Trebuchet MS';
 }
 .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+@media (max-width: 767px) {
+    .skin-blue .main-header .navbar .dropdown-menu li.divider {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .skin-blue .main-header .navbar .dropdown-menu li a {
+        color: #000;
+    }
+
+     .skin-blue .main-header .navbar .dropdown-menu li a:hover {
+            background: #367fa9;
+        }
 }

@@ -239,6 +239,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Applicants.cs" />
+    <Compile Include="Models\Bulletin.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\GradingContextInitializer.cs" />
@@ -1041,7 +1042,7 @@
     <Content Include="Views\Sessions\Delete.cshtml" />
     <Content Include="Views\Sessions\Details.cshtml" />
     <Content Include="Views\Sessions\Edit.cshtml" />
-    <Content Include="Views\Sessions\Index.cshtml" />
+    <Content Include="Views\Sessions\Temp.cshtml" />
     <Content Include="ejThemes\bootstrap-theme\ej.theme.less" />
     <Content Include="ejThemes\common-images\ejicons.eot" />
     <Content Include="ejThemes\common-images\ejicons.ttf" />
@@ -1072,6 +1073,7 @@
     <Content Include="ejThemes\high-contrast-02\ej.theme.less" />
     <Content Include="ejThemes\material\ej.theme.less" />
     <Content Include="ejThemes\office-365\ej.theme.less" />
+    <Content Include="Views\Sessions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

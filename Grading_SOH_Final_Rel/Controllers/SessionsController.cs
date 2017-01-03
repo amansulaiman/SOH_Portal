@@ -18,13 +18,13 @@ namespace Grading_SOH_Final_Rel.Controllers
         // GET: Sessions
         public ActionResult Index()
         {
-            var Sessions = new List<Grading_SOH_Final_Rel.Models.Session>();
-            foreach (var item in db.Sessions.ToList())
-            {
-                Sessions.Add(new Session() { SessionID = item.SessionID, SessionName = item.SessionName });
-            }
+            //var Sessions = new List<Grading_SOH_Final_Rel.Models.Session>();
+            //foreach (var item in db.Sessions.ToList())
+            //{
+            //    Sessions.Add(new Session() { SessionID = item.SessionID, SessionName = item.SessionName });
+            //}
 
-            ViewBag.datasource = Sessions;
+            //ViewBag.datasource = Sessions;
 
             return View(db.Sessions.ToList());
         }
@@ -97,7 +97,7 @@ namespace Grading_SOH_Final_Rel.Controllers
             }
             return View(session);
         }
-
+        [Authorize(Roles ="Admin")]
         // GET: Sessions/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -113,6 +113,7 @@ namespace Grading_SOH_Final_Rel.Controllers
             return View(session);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Sessions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

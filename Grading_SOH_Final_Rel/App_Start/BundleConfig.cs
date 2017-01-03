@@ -9,7 +9,7 @@ namespace Grading_SOH_Final_Rel
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Enable Bundle Optimation
-            BundleTable.EnableOptimizations = true;
+            //BundleTable.EnableOptimizations = true;
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-3.1.1.min.js"));

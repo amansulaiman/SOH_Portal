@@ -7,8 +7,8 @@
 
 }
 @{
-    ViewBag.Title = "Edit Session";
-    ViewBag.Description = "Edit session name";
+    ViewBag.Title = "Edit ";
+    ViewBag.Description = "session";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
@@ -139,32 +139,41 @@
     <section class="content">
         <!--PAGE CONTENT-->
 
-
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-horizontal">
-                <h4>Session</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.SessionID)
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.SessionName, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.SessionName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.SessionName, "", new { @class = "text-danger" })
-                    </div>
+        <div class="row">
+            <div class="box">
+                <div class="box-header">
                 </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
-                    </div>
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.SessionID)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SessionName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SessionName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SessionName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
+                <!-- /.box-body -->
             </div>
-        }
+
+        </div>
+        
 
         <div>
             @Html.ActionLink("Back to List", "Index")

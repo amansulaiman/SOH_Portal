@@ -9,15 +9,12 @@
 }
 @{
     ViewBag.Title = "Session";
-    ViewBag.Description = "List of sessions";
+    ViewBag.Description = "List of academic sessions";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 @section stylesheets{
     <!--Styles For Synfusion Template-->
-    @Scripts.Render("~/Bundles/ejgrid")
-    @Styles.Render("~/bundles/ejstyles")
-    @Scripts.Render("~/bundles/ejscripts")
-    }
+}
 <!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">
     <section class="sidebar">
@@ -48,7 +45,7 @@
             <li class="header">Menu</li>
             <!--Navigation Menu-->
             <!--General Menu -->
-            <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li><a href="/Dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
             @if (User.IsInRole("AcademicUnit"))
             {
@@ -72,7 +69,7 @@
                 </li>
             }
 
-            
+
             @if (User.IsInRole("DepartmentUnit"))
             {
                 <!--Department Unit Menu-->
@@ -117,7 +114,7 @@
                 <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Result Analysis</span></a></li>
 
             }
-            
+
             @if (User.IsInRole("ExamUnit"))
             {
                 <!--Exam Unit Menu-->
@@ -128,7 +125,7 @@
                 <li><a href="#"><i class="fa fa-certificate"></i> <span>Certificate Generator</span></a></li>
                 <li><a href="#"><i class="fa fa-graduation-cap"></i> <span>Transcript Generator</span></a></li>
             }
-            
+
         </ul>
         @* END Menu *@
     </section>
@@ -147,23 +144,39 @@
         <div class="row">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">List of School Sessions</h3>
+                    <p style="padding-left:1em">
+                        @Html.ActionLink("Create New", "Create", "Session", new { @class = "btn btn-primary" })
+                    </p>
                 </div>
-                <p style="padding-left:1em">
-                    @Html.ActionLink("Create New", "Create", "Session", new { @class = "btn btn-primary" })
-                </p>
                 <!-- /.box-header -->
                 <div class="box-body">
-                   @(Html.EJ().Grid<Session>("Grid")
-                    .Datasource((IEnumerable<Session>)ViewBag.datasource)
-                    .Columns(col =>
-                    {
-                        col.Field(p => p.SessionName).HeaderText("Session Name").TextAlign(TextAlign.Left).Add();
-                    }))
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SessionName)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SessionName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.SessionID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.SessionID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.SessionID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
-           
+
         </div>
         <!-- /.box -->
         <!--END OF PAGE CONTENT-->
@@ -183,3 +196,5 @@
 @section ScriptSection
 {
 }
+
+

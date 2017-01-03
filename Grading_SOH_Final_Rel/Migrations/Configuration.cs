@@ -29,10 +29,10 @@ namespace Grading_SOH_Final_Rel.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Departments.AddOrUpdate(d => d.DepartmentID,
+            context.Departments.AddOrUpdate(d => d.DepartmentName,
                 new Department() { DepartmentName = "CSC" });
-            context.Sessions.AddOrUpdate(s => s.SessionID,
-                new Session() { SessionName = "2016/2017" });
+            context.Sessions.AddOrUpdate(s => s.SessionName,
+                new Session() { SessionName = "2016/2017 Academic Session" });
 
             context.Students.AddOrUpdate(st => st.StudentID,
                 new Student()
