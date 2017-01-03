@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Grading_SOH_Final_Rel.Models.Session>
 @using Microsoft.AspNet.Identity
 @using Grading_SOH_Final_Rel.Models
+@using Grading_SOH_Final_Rel.Controllers
+
 @{
     var db = new ApplicationDbContext();
     var nameU = db.Users.Find(User.Identity.GetUserId());
@@ -11,7 +13,14 @@
     ViewBag.Description = "List of sessions";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
+@section stylesheets{
+    <!--Scripts For AdminLTE-->
 
+    <!--Styles For Synfusion Template-->
+    <script src="~/Content/Grid/scripts/ej.widget.grid.min.js"></script>
+    @Scripts.Render("~/Scripts/jsrender.min.js")
+    
+    }
 <!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">
     <section class="sidebar">
@@ -138,34 +147,31 @@
     </section>
     <section class="content">
         <!--PAGE CONTENT-->
-
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.SessionName)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
+        <div class="row">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">List of School Sessions</h3>
+                </div>
+                <p>
+                    @Html.ActionLink("Create New", "Create", "Session", new { @class = "btn btn-primary btn-block" })
+                </p>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    
+                </div>
+                <!-- /.box-body -->
+            </div>
+            @(Html.EJ().Grid<Person>("Grid")
+            .Datasource((IEnumerable<Person>)ViewBag.datasource)
+            .Columns(col =>
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SessionName)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.SessionID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.SessionID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.SessionID })
-                    </td>
-                </tr>
-            }
+                col.Field(p => p.FirstName).HeaderText("First Name").TextAlign(TextAlign.Left).Add();
+                col.Field(p => p.LastName).HeaderText("Last Name").TextAlign(TextAlign.Left).Add();
+                col.Field(p => p.Email).HeaderText("Email").TextAlign(TextAlign.Left).Add();
+            }))
 
-        </table>
-
+        </div>
+        <!-- /.box -->
         <!--END OF PAGE CONTENT-->
     </section>
 </div>
@@ -182,5 +188,4 @@
 
 @section ScriptSection
 {
-
 }

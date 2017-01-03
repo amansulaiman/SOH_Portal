@@ -10,7 +10,12 @@
     ViewBag.Description = "General Overview";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
+@section stylesheets{
 
+    @Scripts.Render("~/Scripts/jsrender.min.js")
+    <!--Styles For Synfusion Template-->
+    <script src="~/Scripts/ej/ej.widget.chart.min.js"></script>
+}
 <!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">
     <section class="sidebar">

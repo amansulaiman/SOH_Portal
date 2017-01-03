@@ -166,8 +166,7 @@
             <footer>
                 <div class="container body-content">
                     <hr />
-                    <p style="
-    mily:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:16px">&copy; @DateTime.Now.Year - School of Hygiene Portal</p>
+                    <p style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:16px">&copy; @DateTime.Now.Year - School of Hygiene Portal</p>
                 </div>
             </footer>
             <!-- /#Footer -->
@@ -181,16 +180,6 @@
 </div>
 
 @section scripts{
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    $(document).ready(function () {
-        $('#mytable').DataTable();
-    });
-    </script>
     <!-- DataTables -->
     <script src="~/Content/datatables/jquery.dataTables.min.js"></script>
     <script src="~/Content/datatables/dataTables.bootstrap.min.js"></script>
@@ -198,14 +187,5 @@
         $(function () {
             $("#mytable").DataTable();
       });
-    </script>
-}
-<!--Scripts Section-->
-@section ScriptSection{
-    <script>
-    function OndataLabel(sender) {
-        sender.data.location.x = sender.data.location.x + 20;
-    }
-    $("#controlarea").css("visibility", "visible");
     </script>
 }

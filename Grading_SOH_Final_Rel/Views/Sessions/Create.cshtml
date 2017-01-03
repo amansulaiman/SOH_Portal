@@ -1,36 +1,188 @@
 ﻿@model Grading_SOH_Final_Rel.Models.Session
+@using Microsoft.AspNet.Identity
+@using Grading_SOH_Final_Rel.Models
+@{
+    var db = new ApplicationDbContext();
+    var nameU = db.Users.Find(User.Identity.GetUserId());
 
+}
 @{
     ViewBag.Title = "Create";
+    ViewBag.Description = "session";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
-
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Session</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.SessionName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SessionName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SessionName, "", new { @class = "text-danger" })
+<!--BEGIN SIDE BAR-->
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p style="font-size:14px">@nameU.FullName.ToString().Substring(0, 18).Trim() ...</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search ...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
             </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu">
+            <li class="header">Menu</li>
+            <!--Navigation Menu-->
+            <!--General Menu -->
+            <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+            @if (User.IsInRole("AcademicUnit"))
+            {
+                     <!--Academic Unit Menu-->
+                <li class="active"><a href="#"><i class="fa fa-calendar"></i> <span>Academic Sessions</span></a></li>
+                <li><a href="#"><i class="fa fa-book"></i> <span>Academic Semisters</span></a></li>
+                <li><a href="#"><i class="fa fa-building"></i> <span>School Departments</span></a></li>
+                <li><a href="#"><i class="fa fa-pencil-square"></i> <span>Students Registration</span></a></li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-globe"></i> <span>Online Applications</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Applicatants</a></li>
+                        <li><a href="#">Admitted Applicants</a></li>
+                        <li><a href="#">Applicants Report</a></li>
+                    </ul>
+                </li>
+            }
+
+
+            @if (User.IsInRole("DepartmentUnit"))
+            {
+                <!--Department Unit Menu-->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i> <span>Department Students</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Current</a></li>
+                        <li><a href="#">Graduated</a></li>
+                        <li><a href="#">Withdrawl</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i> <span>Department Courses</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Course List</a></li>
+                        <li><a href="#">Course Registration</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pencil"></i> <span>Result Entry</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Normal Entry</a></li>
+                        <li><a href="#">Batch Entry</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-print"></i> <span>Result Printing</span></a></li>
+                <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Result Analysis</span></a></li>
+
+            }
+
+            @if (User.IsInRole("ExamUnit"))
+            {
+                <!--Exam Unit Menu-->
+                <li><a href="#"><i class="fa fa-database"></i> <span>Result Approval</span></a></li>
+                <li><a href="#"><i class="fa fa-pencil-square-o"></i> <span>Result Modification</span></a></li>
+                <li><a href="#"><i class="fa fa-print"></i> <span>Result Printing</span></a></li>
+                <li><a href="#"><i class="fa fa-pie-chart"></i> <span>Result Analysis</span></a></li>
+                <li><a href="#"><i class="fa fa-certificate"></i> <span>Certificate Generator</span></a></li>
+                <li><a href="#"><i class="fa fa-graduation-cap"></i> <span>Transcript Generator</span></a></li>
+            }
+
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>
+<!--END OF SIDE BAR-->
+<!--BEGIN MAIN CONTENT -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+            <small>@ViewBag.Description</small>
+        </h1>
+    </section>
+    <section class="content">
+        <!--PAGE CONTENT-->
+        <h2>Create</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Session</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SessionName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SessionName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SessionName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
+
+        <!--END OF PAGE CONTENT-->
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+<!--BEGIN FOOTER-->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Developed &amp; Maintained by <a href="http://c3nx.com">C3NX Technology Solutions</a></b>
     </div>
+    <strong>Copyright © @DateTime.Now.Date.Year <a href="http://soh.edu.ng">School of Hygiene, Kano</a>.</strong> All rights reserved.
+</footer>
+<!--END FOOTER-->
+
+
+@section ScriptSection
+{
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
