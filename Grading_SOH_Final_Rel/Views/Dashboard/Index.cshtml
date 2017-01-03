@@ -11,10 +11,10 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 @section stylesheets{
-
-    @Scripts.Render("~/Scripts/jsrender.min.js")
     <!--Styles For Synfusion Template-->
-    <script src="~/Scripts/ej/ej.widget.chart.min.js"></script>
+    @Styles.Render("~/bundles/ejstyles")
+    @Scripts.Render("~/Bundles/ejchart")
+    @Scripts.Render("~/bundles/ejscripts")
 }
 <!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">

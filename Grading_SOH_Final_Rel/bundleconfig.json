@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "Scripts/jsrender.min.min.js",
+    "inputFiles": [
+      "Scripts/jsrender.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.easing.1.3.min.js",
+    "inputFiles": [
+      "Scripts/jquery.easing.1.3.js"
+    ]
+  }
+]
