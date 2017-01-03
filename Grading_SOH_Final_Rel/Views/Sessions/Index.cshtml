@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Grading_SOH_Final_Rel.Models.Session>
 @using Microsoft.AspNet.Identity
 @using Grading_SOH_Final_Rel.Models
-@using Grading_SOH_Final_Rel.Controllers
 
 @{
     var db = new ApplicationDbContext();
@@ -14,12 +13,9 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 @section stylesheets{
-    <!--Scripts For AdminLTE-->
-
     <!--Styles For Synfusion Template-->
     <script src="~/Content/Grid/scripts/ej.widget.grid.min.js"></script>
     @Scripts.Render("~/Scripts/jsrender.min.js")
-    
     }
 <!--BEGIN SIDE BAR-->
 <aside class="main-sidebar">
@@ -152,24 +148,21 @@
                 <div class="box-header">
                     <h3 class="box-title">List of School Sessions</h3>
                 </div>
-                <p>
-                    @Html.ActionLink("Create New", "Create", "Session", new { @class = "btn btn-primary btn-block" })
+                <p style="padding-left:1em">
+                    @Html.ActionLink("Create New", "Create", "Session", new { @class = "btn btn-primary" })
                 </p>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    
+                   @(Html.EJ().Grid<Session>("Grid")
+                    .Datasource((IEnumerable<Session>)ViewBag.datasource)
+                    .Columns(col =>
+                    {
+                        col.Field(p => p.SessionName).HeaderText("Session Name").TextAlign(TextAlign.Left).Add();
+                    }))
                 </div>
                 <!-- /.box-body -->
             </div>
-            @(Html.EJ().Grid<Person>("Grid")
-            .Datasource((IEnumerable<Person>)ViewBag.datasource)
-            .Columns(col =>
-            {
-                col.Field(p => p.FirstName).HeaderText("First Name").TextAlign(TextAlign.Left).Add();
-                col.Field(p => p.LastName).HeaderText("Last Name").TextAlign(TextAlign.Left).Add();
-                col.Field(p => p.Email).HeaderText("Email").TextAlign(TextAlign.Left).Add();
-            }))
-
+           
         </div>
         <!-- /.box -->
         <!--END OF PAGE CONTENT-->

@@ -18,13 +18,14 @@ namespace Grading_SOH_Final_Rel.Controllers
         // GET: Sessions
         public ActionResult Index()
         {
-            List<Person> Persons = new List<Person>();
-            Persons.Add(new Person() { FirstName = "John", LastName = "Beckett", Email = "john@syncfusion.com" });
-            Persons.Add(new Person() { FirstName = "Ben", LastName = "Beckett", Email = "ben@syncfusion.com" });
-            Persons.Add(new Person() { FirstName = "Andrew", LastName = "Beckett", Email = "andrew@syncfusion.com" });
-            ViewBag.datasource = Persons;
+            var Sessions = new List<Grading_SOH_Final_Rel.Models.Session>();
+            foreach (var item in db.Sessions.ToList())
+            {
+                Sessions.Add(new Session() { SessionID = item.SessionID, SessionName = item.SessionName });
+            }
 
-            ViewBag.datasource = Persons;
+            ViewBag.datasource = Sessions;
+
             return View(db.Sessions.ToList());
         }
 
@@ -131,12 +132,5 @@ namespace Grading_SOH_Final_Rel.Controllers
             }
             base.Dispose(disposing);
         }
-    }
-
-    public class Person
-    {
-        public string Email { get; internal set; }
-        public string FirstName { get; internal set; }
-        public string LastName { get; internal set; }
     }
 }
